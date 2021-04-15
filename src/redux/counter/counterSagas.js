@@ -1,13 +1,11 @@
 import * as types from './counterTypes';
+import * as counterActions from './counterActions';
 import { takeLatest, put, call, fork, all, delay} from "redux-saga/effects";
 
 export function* incrementCounterSaga(action) {
     try {
         yield call(delay, 500);
-        yield put({
-            type: types.INCREMENT_COUNTER,
-            payload: action.payload
-        });
+        yield put(counterActions.setIncrementCounter());
 
     } catch (response) {}
 }
@@ -19,10 +17,7 @@ function* watchIncrementCounter() {
 export function* decrementCounterSaga(action) {
     try {
         yield call(delay, 500);
-        yield put({
-            type: types.DECREMENT_COUNTER,
-            payload: action.payload
-        });
+        yield put(counterActions.setIncrementCounter());
     } catch (response) {}
 }
 

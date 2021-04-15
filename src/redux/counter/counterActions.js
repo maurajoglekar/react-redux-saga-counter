@@ -13,3 +13,15 @@ export function decrementCounter(payload) {
     payload
   };
 }
+
+export function setIncrementCounter() {
+  return {
+    type: INCREMENT_COUNTER
+  };
+}
+
+export function setDecrementCounter() {
+  return {
+    type: DECREMENT_COUNTER
+  };
+}
