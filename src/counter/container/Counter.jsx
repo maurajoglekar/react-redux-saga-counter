@@ -1,9 +1,21 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { 
   decrementCounter as decrementCounterAction, 
   incrementCounter as incrementCounterAction
 } from "../../redux/counter/counterActions";
+
+const propTypes = {
+  value: PropTypes.number,
+  incrementCounter: PropTypes.function,
+  decrementCounter: PropTypes.function
+};
+const defaultProps = {
+  value: 0,
+  incrementCounter: () => null,
+  decrementCounter: () => null
+};
 
 function Counter({ value, incrementCounter, decrementCounter }) {
   return (
@@ -17,6 +29,9 @@ function Counter({ value, incrementCounter, decrementCounter }) {
     </div>
   );
 }
+
+Counter.propTypes = propTypes;
+Counter.defaultProps = defaultProps; 
 
 const mapStateToProps = (state) => {
   const { counter } = state;
